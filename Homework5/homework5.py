@@ -1,22 +1,28 @@
 import Levenshtein
 
-class LevenshteinWordComparison:
+#Отделила определение класса двумя пустыми строками вместо одной
+#Использовала 4 пробела на каждый уровень отступа вместо tab
 
-    def word_comparison(word1, word2):
-            print(word1, word2, Levenshtein.distance(word1, word2), )
+
+class LevenshteinDistance:
+
+    def words_is_match(word1, word2):
+        print(word1, word2, Levenshtein.distance(word1, word2), )
 
 if __name__ == "__main__":
 
-    words = [
-        'Уазик', 'Убавить', 'Убавиться', 'Убаюкать', 'Убаюкивать', 'Убедительный', 'Убедить', 'Убедиться', 'Убежать',
-        'Убеждение', 'Убежденный', 'Убежище', 'Убелить', 'Уберечь', 'Убивать', 'Убиваться', 'Убийственный', 'Убийство',
-        'Убийца', 'Убирать', 'Убираться', 'Убитый', 'Убить', 'Убиться', 'Ублаготворить']
-    word_comparison = 'Убаюкать'
+    # Значения в списке pairs расположены двух под другом, а не в одну строку, так как одна строка была бы слишком широкой
+    # Закрывающая скобка в списке pairs расположена под первым символом строки, начинающей многострочную конструкцию
 
-    print('Проверяемое слово ' + str(word_comparison))
-    for i in words:
-        if LevenshteinWordComparison.word_comparison(i, word_comparison) == 0:
-            print('"' + str(i) + '"' + ' совподает с проверяемым словом')
-        else:
-            print('"' + str(i) + '"' + ' не совподает с проверяемым словом')
+    pairs = [
+        ('kitting', 'sitting'),
+        ('saturday', 'sunday'),
+        ('море', 'гора'),
+        ('компьютер', 'компьютеры'),
+        ('рука', 'рука'),
+    ]
 
+    for s, t in pairs:
+        LevenshteinDistance.words_is_match(s, t)
+
+#
